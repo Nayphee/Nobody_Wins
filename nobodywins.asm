@@ -1538,9 +1538,13 @@ buildsprites
         sec
         sbc #bulletdy
         sta objy,x
-        lda mox,x             ; is this object in the trees?
-        sta cx
+        lda mox,x             ; is this shell in the trees? its position
+        sec                   ; is its centre, and tileunder adds 8 to
+        sbc #8                ; find a tank's: back it off, or the check
+        sta cx                ; lands 8px down and right of the shell
         lda moy,x
+        sec
+        sbc #8
         sta cy
         stx muxtmp
         jsr tileunder
@@ -1577,9 +1581,25 @@ buildsprites
         lda #255
         sta objy+8,x
         jmp @pnext
-@plive  lda #0
-        sta objpri+8,x        ; shells are never hidden
-        lda pbx,x
+@plive  lda pbx,x             ; in the trees? a shell goes behind them
+        sec                   ; like anything else (it used to sit in
+        sbc #8                ; front). tileunder looks 8px in from cx/cy
+        sta cx                ; to find a tank's centre; a shell's
+        lda pby,x             ; position is its centre, so back it off
+        sec
+        sbc #8
+        sta cy
+        stx muxtmp
+        jsr tileunder
+        ldx muxtmp
+        cmp #tileforest
+        bne @pfront
+        lda #1
+        sta objpri+8,x
+        jmp @pplace
+@pfront lda #0
+        sta objpri+8,x
+@pplace lda pbx,x
         sec
         sbc #bulletdx
         sta objx+8,x

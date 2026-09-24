@@ -5,7 +5,10 @@ against waves of enemy tanks across 35 stages. It started out as an attempt at a
 clone, but the longer the game development went on, the more I noticed some similarities to real
 life, and adjustments were made.
 
-It's a 27,840-byte program, 11,339 lines of 6502 assembly, slopped together in about a week.
+The title is a dig at war games like *Who Dares Wins*. "Who Dares Dies" was a working title, until
+I realized that the reality was worse.
+
+It's a 27,840-byte program, 11,359 lines of 6502 assembly, slopped together in about a week.
 Claude wrote the code. I did the directing, AI jockeying and meat proxying.
 
 ## The game
@@ -22,7 +25,7 @@ winning.
 
 The stages repeat after 35, with every enemy tank promoted a grade on each pass, all the way to
 wave 99, where the game will finally end. I doubt the player will get to the end without
-cheating, but a surprise awaits you if you do.
+cheating, but players are a resourceful and clever lot - so a surprise ending was necessary.
 
 ## Why
 
@@ -49,7 +52,7 @@ result was preserved, without even looking at anyone's copyrighted works.
 > **Claude says:** I never ran the game on a C64. Every change was assembled by a small Python
 > two-pass assembler and exercised in a Python 6502 simulator that drives the game's own
 > per-frame routines: put a tank on the field, call `updateenemies`, read what happened. That
-> grew into a 29-test regression suite, plus a 17-part test of the bonus round alone, run after
+> grew into a 30-test regression suite, plus a 17-part test of the bonus round alone, run after
 > every change. Alongside it: a pace test, timing how long enemies take to reach the reactor over
 > five seeded runs; a level validator; a memory-map checker; and scans for duplicate labels,
 > registers clobbered across subroutine calls, and dead code. Three builds come out of the same
@@ -75,8 +78,11 @@ are.
 
 ## The music
 
-The anthem on the title screen began as a track I got Suno to compose. Claude listened to it,
-turned it into SID format, and put the result into the game. The rest of the music is
+The anthem on the title screen began as a track I got Suno to compose. I was going to use
+Dominic Muldowney's "Oceania, 'Tis for Thee", the Ingsoc anthem from *1984*, but Claude advised
+against it on copyright grounds. This turned out to be a good decision, because Suno's PRNG-based
+composition turned out to be pretty good, and we wouldn't have had it at all otherwise. Claude
+listened to it, turned it into SID format, and put the result into the game. The rest of the music is
 Tchaikovsky: a bit of the *1812 Overture* plays each time a new wave is announced.
 
 > **Claude says:** I worked out the recording's melody, bass line and chords, and wrote them out
