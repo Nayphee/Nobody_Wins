@@ -157,7 +157,17 @@ a human job, because, as I have learnt, AIs have no idea what "fun" feels like.
 
 ## Building
 
-    python3 tools/asm6502.py source/nobodywins.asm -o nobodywins.prg
+    python3 asm6502.py nobodywins.asm -o nobodywins.prg
 
 The assembler is a small Python script and needs nothing beyond Python 3. Load `nobodywins.prg`
 on a C64 or in VICE and type `RUN`.
+
+## Public domain
+
+The game is in the public domain. People can go their hardest cracking it, modifying it, and
+putting swear words in the scroller. It's all educational.
+
+For what it's worth, the law on AI-made work is still being argued over: code an AI produces on
+its own has no author to own it, but a game directed, designed and tested by a person for a
+week is another matter, and nobody has settled where the line sits. I'm not waiting to find
+out. It's yours.
