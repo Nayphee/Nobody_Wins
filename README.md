@@ -149,6 +149,12 @@ a human job, because, as I have learnt, AIs have no idea what "fun" feels like.
 - The second joystick port and the scroller's raster timing can't be proven in the simulator.
   They need a real machine or an emulator.
 
+## Next time
+
+- Get an MCP happening through to VICE. I didn't use one, and it would have let Claude test the
+  second joystick and the raster timing on the real thing instead of in its simulator.
+- Test out another coding feature, like wireframe 3D, or huge background scrolling maps.
+
 ## Building
 
     python3 tools/asm6502.py source/nobodywins.asm -o nobodywins.prg
